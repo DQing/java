@@ -62,6 +62,7 @@ public class MyStack {
         return storage[--count];
         // --end-->
 
-//        throw new UnsupportedOperationException("Stack is empty.");
+//        throw new UnsupportedOperationException("Stack is empty.");//这个可以注释？
+
     }
 }
