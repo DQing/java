@@ -20,7 +20,6 @@ class StringTest {
         // It is really easy to pass the test. But you have to tell why.
         // <--start
         final Optional<Boolean> areSame = Optional.of(false);
-        areSame.isPresent();
         // --end-->
 
         assertEquals("The new string", modifiedString);
@@ -37,7 +36,7 @@ class StringTest {
         //
         // It is really easy to pass the test. But you have to tell why.
         // <--start
-        final Optional<Boolean> areSame = Optional.empty();
+        final Optional<Boolean> areSame = Optional.of(false);
         // --end-->
 
         assertEquals("The string with tailing space.", modifiedString);
