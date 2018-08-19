@@ -49,8 +49,8 @@ class IntegerTypeTest {
 
         // TODO: You should not write concrete number here. Please find a property or constant instead.
         // <!--start
-        final long maximumSymbol = 0;
-        final long minimumSymbol = 0;
+        final long maximumSymbol = Long.MAX_VALUE;
+        final long minimumSymbol = Long.MIN_VALUE;
         // --end-->
 
         assertEquals(maximumSymbol, maximum);
