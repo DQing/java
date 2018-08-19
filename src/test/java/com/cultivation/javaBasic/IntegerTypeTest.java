@@ -121,8 +121,9 @@ class IntegerTypeTest {
 
         // TODO: please modify the following lines to pass the test
         // <!--start
-        final double expectedResult1 = Double.POSITIVE_INFINITY;
-        final double expectedResult2 = Double.POSITIVE_INFINITY;
+        // 1.0E-05=1.0*10^(-5)=0.00001
+        final double expectedResult1 = 0.0 ;
+        final double expectedResult2 = 3;
         // --end-->
 
         assertEquals(expectedResult1, result1, +1.0E-05);
@@ -136,7 +137,9 @@ class IntegerTypeTest {
 
         // TODO: please modify the following lines to pass the test
         // <!--start
-        final short expected = 0;
+        // 0000 0001 0010 0011 （0100 0101 0110 0111）
+
+        final short expected = 17767;
         // --end-->
 
         assertEquals(expected, smallerInteger);
