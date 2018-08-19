@@ -3,6 +3,8 @@ package com.cultivation.javaBasic;
 import org.junit.jupiter.api.Test;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.BitSet;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -64,8 +66,8 @@ class IntegerTypeTest {
 
         // TODO: You should not write concrete number here. Please find a property or constant instead.
         // <!--start
-        final byte maximumSymbol = 0;
-        final byte minimumSymbol = 0;
+        final byte maximumSymbol = Byte.MAX_VALUE;
+        final byte minimumSymbol = Byte.MIN_VALUE;
         // --end-->
 
         assertEquals(maximumSymbol, maximum);
