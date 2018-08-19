@@ -15,8 +15,10 @@ class IntegerTypeTest {
 
         // TODO: You should not write concrete number here. Please find a property or constant instead.
         // <!--start
-        final int maximumSymbol = 0;
-        final int minimumSymbol = 0;
+        // 2^31 - 1 = 0111 1111 1111 1111 1111 1111 1111 1111 = 2147483647
+        // 2^31  = 2^31 - 1 + 1 = 1000 0000 0000 0000 0000 0000 0000 0000 = -2147483648
+        final int maximumSymbol = Integer.MAX_VALUE;
+        final int minimumSymbol = Integer.MIN_VALUE;
         // --end-->
 
         assertEquals(maximumSymbol, maximum);
@@ -126,7 +128,7 @@ class IntegerTypeTest {
     @Test
     void should_truncate_number_when_casting() {
         final int integer = 0x0123_4567;
-        final short smallerInteger = (short)integer;
+        final short smallerInteger = (short) integer;
 
         // TODO: please modify the following lines to pass the test
         // <!--start
