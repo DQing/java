@@ -68,7 +68,7 @@ class StringTest {
 
         // TODO: Take part of the original string according to expectation.
         // <--start
-        final String partOfString = null;
+        final String partOfString = originalString.split("Java")[1].trim();
         // --end-->
 
         final String expectedString = "is great";
@@ -83,7 +83,7 @@ class StringTest {
 
         // TODO: Take part of the original string according to expectation.
         // <--start
-        final String partOfString = null;
+        final String partOfString = originalString.split(" ")[1];
         // --end-->
 
         final String expectedString = "is";
@@ -106,10 +106,10 @@ class StringTest {
 
         // TODO: Extract words in the sentence.
         // <--Start
-        String[] words = null;
+        String[] words = sentence.split(" ");
         // --End-->
 
-        assertArrayEquals(new String[] {"This", "is", "Mike"}, words);
+        assertArrayEquals(new String[]{"This", "is", "Mike"}, words);
     }
 
     @SuppressWarnings({"unused", "ConstantConditions"})
@@ -119,10 +119,10 @@ class StringTest {
 
         // TODO: Extract words in the sentence.
         // <--Start
-        String[] words = null;
+        String[] words = sentence.split("/");
         // --End-->
 
-        assertArrayEquals(new String[] {"This", "is", "Mike"}, words);
+        assertArrayEquals(new String[]{"This", "is", "Mike"}, words);
     }
 
     @SuppressWarnings({"unused", "StringBufferReplaceableByString", "MismatchedQueryAndUpdateOfStringBuilder"})
@@ -134,12 +134,29 @@ class StringTest {
         // TODO: Create string using StringBuilder
         // <--Start
         StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < height; i++) {
+
+            for (int j = 0; j < width; j++) {
+                if (j == 0 || j == width - 1) {
+                    builder.append("|");
+                }
+                if (j != width - 1 && j != 0) {
+                    if (i == 1) {
+                        builder.append(" ");
+                    } else {
+                        builder.append("-");
+                    }
+                }
+            }
+            builder.append("\n");
+        }
+
         // --End-->
 
         final String expected =
-            "|---|\n" +
-            "|   |\n" +
-            "|---|\n";
+                "|---|\n" +
+                        "|   |\n" +
+                        "|---|\n";
 
         assertEquals(expected, builder.toString());
     }
@@ -208,7 +225,7 @@ class StringTest {
     @Test
     void should_get_code_point_count() {
         final String withSurrogatePairs =
-            new String(Character.toChars(0x20B9F)) + " is a character that you may not know";
+                new String(Character.toChars(0x20B9F)) + " is a character that you may not know";
 
         // TODO: please modify the following code to pass the test
         // <--start
@@ -225,13 +242,13 @@ class StringTest {
     @Test
     void should_copy_all_code_point_to_array() {
         final String withSurrogatePairs =
-            new String(Character.toChars(0x20B9F)) + " is funny";
+                new String(Character.toChars(0x20B9F)) + " is funny";
 
         final int[] codePoints = getCodePointsFromString(withSurrogatePairs);
 
         assertArrayEquals(
-            new int[] {0x20B9F, (int)' ', (int)'i', (int)'s', (int)' ', (int)'f', (int)'u', (int)'n', (int)'n', (int)'y'},
-            codePoints);
+                new int[]{0x20B9F, (int) ' ', (int) 'i', (int) 's', (int) ' ', (int) 'f', (int) 'u', (int) 'n', (int) 'n', (int) 'y'},
+                codePoints);
     }
 
     @Test
