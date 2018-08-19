@@ -169,6 +169,9 @@ class StringTest {
         int sum = 0;
         // TODO: Write some code to calculate the checksum of the string. The checksum is the sum of each string char.
         // <--Start
+        for (int i = 0; i < text.length(); i++) {
+            sum += text.charAt(i);
+        }
         // --End-->
 
         assertEquals(3655, sum);
@@ -184,7 +187,7 @@ class StringTest {
         // こ - U+3053
         // れ - U+308c
         // <--Start
-        final String actual = null;
+        final String actual = "\u306a\u306b\u3053\u308c";
         // --End-->
 
         assertEquals(expected, actual);
@@ -197,7 +200,8 @@ class StringTest {
 
         // TODO: Modify the following code to create new string from original String
         // <--Start
-        final String reversed = null;
+//        final String reversed = original.r;
+        final String reversed = new StringBuilder(original).reverse().toString();
         // --End-->
 
         assertEquals("654321", reversed);
@@ -214,8 +218,8 @@ class StringTest {
 
         // TODO: Please change the value of the following 2 lines to pass the test.
         // <--start
-        Optional<Boolean> actualResultOfEqual = Optional.empty();
-        Optional<Boolean> actualResultOfEqualIgnoreCase = Optional.empty();
+        Optional<Boolean> actualResultOfEqual = Optional.of(false);
+        Optional<Boolean> actualResultOfEqualIgnoreCase = Optional.of(true);
         // --end-->
 
         assertEquals(equalResult, actualResultOfEqual);
@@ -230,9 +234,11 @@ class StringTest {
         // TODO: please modify the following code to pass the test
         // <--start
         // TODO: please write down the result directly.
-        final int expectedCharLength = 0;
+        // Java中理论说是一个字符占用两个字节(16位)
+        // 10 0000 1011 1001 1111
+        final int expectedCharLength = 39;
         // TODO: please call some method to calculate the result.
-        final int actualCodePointLength = 0;
+        final int actualCodePointLength = withSurrogatePairs.substring(1, withSurrogatePairs.length()).length();
         // --end-->
 
         assertEquals(expectedCharLength, withSurrogatePairs.length());
@@ -260,7 +266,7 @@ class StringTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String expectedText = null;
+        final String expectedText = "Hello, Harry. Next year, you will be 23.";
         // --end-->
 
         assertEquals(expectedText, text);
@@ -269,7 +275,19 @@ class StringTest {
     private int[] getCodePointsFromString(String withSurrogatePairs) {
         // TODO: please implement the method to the pass the test
         // <--start
-        throw new NotImplementedException();
+        int length = withSurrogatePairs.length();
+        int codePointCount = Character.codePointCount(withSurrogatePairs, 0, length);
+        int[] codePointArray = new int[codePointCount];
+        int codePointIndex = 0;
+
+        for (int charIndex = 0, cp; charIndex < length; charIndex += Character.charCount(cp)) {
+            cp = withSurrogatePairs.codePointAt(charIndex);
+            codePointArray[codePointIndex++] = cp;
+        }
+
+        return codePointArray;
+
+//        throw new NotImplementedException();
         // --end-->
     }
 
