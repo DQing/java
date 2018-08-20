@@ -13,6 +13,7 @@ class FloatingTypeTest {
     @Test
     void should_not_get_rounded_result_if_convert_floating_number_to_integer() {
         final float floatingPointNumber = 2.75f;
+        float a;
         final int integer = (int) floatingPointNumber;
 
         // TODO: Please change the result to pass the test.
@@ -65,8 +66,15 @@ class FloatingTypeTest {
     @SuppressWarnings("unused")
     private boolean isNan(double realNumber) {
         // TODO: please implement the method to pass the test.
+
         return Double.isNaN(realNumber);
 //        throw new NotImplementedException();
+    }
+
+    @Test
+    void should_be_NaN() {
+        double result = 0.0 / 0;
+        assertTrue(Double.isNaN(result));
     }
 
     @SuppressWarnings("unused")

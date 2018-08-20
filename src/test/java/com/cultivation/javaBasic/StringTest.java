@@ -1,7 +1,6 @@
 package com.cultivation.javaBasic;
 
 import org.junit.jupiter.api.Test;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Optional;
 
@@ -68,7 +67,7 @@ class StringTest {
 
         // TODO: Take part of the original string according to expectation.
         // <--start
-        final String partOfString = originalString.split("Java")[1].trim();
+        final String partOfString = originalString.substring(5);
         // --end-->
 
         final String expectedString = "is great";
@@ -83,7 +82,8 @@ class StringTest {
 
         // TODO: Take part of the original string according to expectation.
         // <--start
-        final String partOfString = originalString.split(" ")[1];
+        final String partOfString = originalString.substring(5, 7);
+
         // --end-->
 
         final String expectedString = "is";
@@ -238,7 +238,7 @@ class StringTest {
         // 10 0000 1011 1001 1111
         final int expectedCharLength = 39;
         // TODO: please call some method to calculate the result.
-        final int actualCodePointLength = withSurrogatePairs.substring(1, withSurrogatePairs.length()).length();
+        final int actualCodePointLength = withSurrogatePairs.substring(1).length();
         // --end-->
 
         assertEquals(expectedCharLength, withSurrogatePairs.length());

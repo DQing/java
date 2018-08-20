@@ -119,10 +119,11 @@ class IntegerTypeTest {
         final double result1 = 2 / 3 * 5;
         final double result2 = 2 * 5 / 3;
 
+
         // TODO: please modify the following lines to pass the test
         // <!--start
         // 1.0E-05=1.0*10^(-5)=0.00001
-        final double expectedResult1 = 0.0 ;
+        final double expectedResult1 = 0.0;
         final double expectedResult2 = 3;
         // --end-->
 
@@ -139,7 +140,7 @@ class IntegerTypeTest {
         // <!--start
         // 0000 0001 0010 0011 （0100 0101 0110 0111）
 
-        final short expected = 17767;
+        final short expected = 0x4567;
         // --end-->
 
         assertEquals(expected, smallerInteger);
@@ -180,10 +181,7 @@ class IntegerTypeTest {
     private int add(int left, int right) {
         // TODO: Please implement the method. Adding two numbers.
         // The method should throw ArithmeticException if overflow or underflow happens.
-        if (left + right == Integer.MIN_VALUE)
-            throw new ArithmeticException();
-        else
-            return left + right;
+        return Math.addExact(left, right);
 //        throw new NotImplementedException();
     }
 
