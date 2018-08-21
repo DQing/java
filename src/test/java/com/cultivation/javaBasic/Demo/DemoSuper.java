@@ -1,22 +1,19 @@
-package com.cultivation.javaBasic;
+package com.cultivation.javaBasic.Demo;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class Demo {
-    public static void main(String[] args) {
-        double result1 = 1 / 2;
-        System.out.print(result1);
+public class DemoSuper {
+//    static String superStaticVar = "父类静态变量";
+//    String superVar = "父类变量";
+
+    public DemoSuper() {
+        System.out.println("父类无参构造函数");
     }
 
-    @Test
-    void test() {
-        final double result1 = 1 / 2.0;
-        final double result2 = 1 / 2.00;
-
-        assertEquals(result1, result2);
-
+    public DemoSuper(int i) {
+        System.out.println("父类有参构造函数");
     }
 }

@@ -2,6 +2,7 @@ package com.cultivation.javaBasic.util;
 
 @SuppressWarnings("unused")
 public class OverloadingFixture {
+    //但是java总是给你一个默认的不可见的空构造函数( 如果你不重新定义一个) 。
     public String methodWithOneParameter(String value) {
         return "methodWithOneParameter(String)";
     }

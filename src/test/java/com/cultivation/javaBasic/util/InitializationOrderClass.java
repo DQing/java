@@ -7,6 +7,7 @@ import java.util.List;
 public class InitializationOrderClass {
     private static List<String> logger = new ArrayList<>();
 
+    // (静态变量、静态初始化块）>（变量、初始化块）>（构造函数）
     public static void resetLogs() {
         logger.clear();
     }

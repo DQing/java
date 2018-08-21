@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 class ObjectTest {
     @SuppressWarnings({"UnnecessaryLocalVariable", "ConstantConditions"})
@@ -121,6 +122,15 @@ class ObjectTest {
         // --end-->
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void should_determine_object_type() {
+        String stringInstance = "helloworld";
+        Object objectInstance = stringInstance;
+        Class<? extends String> stringClass = stringInstance.getClass();
+        Class<?> objectInstanceClass = objectInstance.getClass();
+        assertSame(stringClass, objectInstanceClass);
     }
 
     @Test

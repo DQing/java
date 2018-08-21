@@ -14,7 +14,7 @@ class InheritanceTest {
     void should_be_derived_from_object_class() {
         // TODO: please modify the following code to pass the test
         // <--start
-        final Class<?> expectedSuperClass = Object.class;
+        final Class expectedSuperClass = Object.class;
         // --end-->
 
         assertEquals(expectedSuperClass, SimpleEmptyClass.class.getSuperclass());
@@ -26,7 +26,8 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String[] expected = {"SuperClassWithDefaultConstructor.constructor()", "DerivedFromSuperClassWithDefaultConstructor.constructor()"};
+        final String[] expected = {"SuperClassWithDefaultConstructor.constructor()",
+                "DerivedFromSuperClassWithDefaultConstructor.constructor()"};
         // --end-->
 
         String[] logs = instance.getLogs();
@@ -54,6 +55,8 @@ class InheritanceTest {
 
     @Test
     void should_call_super_class_constructor_more() {
+        //如果不显式声明调用哪种
+        //super，那么都会默认调用super（)
         DerivedFromSuperClassWithDefaultConstructor instance = new DerivedFromSuperClassWithDefaultConstructor("God");
 
         // TODO: please modify the following code to pass the test
@@ -78,7 +81,7 @@ class InheritanceTest {
         final String expectedName = "DerivedFromBaseClassForOverriding";
         // --end-->
 
-        assertEquals(expectedName, instance.getName());
+        assertEquals(expectedName, instance.getName("dd"));
     }
 
     @Test
@@ -90,14 +93,15 @@ class InheritanceTest {
         final String expectedName = "BaseClassForOverriding->DerivedFromBaseClassForOverridingCallingSuper";
         // --end-->
 
-        assertEquals(expectedName, instance.getName());
+        assertEquals(expectedName, instance.getName(""));
     }
 
     @SuppressWarnings({"ConstantConditions", "RedundantCast", "UnnecessaryLocalVariable"})
+
     @Test
     void should_use_caution_when_dealing_with_array_type() {
         DerivedFromSuperClassWithDefaultConstructor[] array = new DerivedFromSuperClassWithDefaultConstructor[4];
-        SuperClassWithDefaultConstructor[] arrayWithBaseType = (SuperClassWithDefaultConstructor[]) array;
+        SuperClassWithDefaultConstructor[] arrayWithBaseType = array; //读写规则不一样
 
         boolean willThrow = false;
 
@@ -153,6 +157,7 @@ class InheritanceTest {
         final Optional<Boolean> expectedResult3 = Optional.of(true);
         // --end-->
 
+        //前者是后者的实例
         assertEquals(expectedResult1.get(), nested instanceof NestedDerivedClassWithName);
         assertEquals(expectedResult2.get(), nested instanceof DerivedFromBaseClassWithName);
         assertEquals(expectedResult3.get(), nested instanceof BaseClassWithName);
