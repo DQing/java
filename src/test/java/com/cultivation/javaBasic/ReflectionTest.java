@@ -115,7 +115,6 @@ class ReflectionTest {
         String[] methodsContainsAnnotations = Arrays.stream(theClass.getMethods())
                 .filter(item -> item.getAnnotation(MyAnnotation.class) != null)
                 .map(Method::getName)
-                .sorted()
                 .toArray(String[]::new);
         // --end-->
 

@@ -108,7 +108,7 @@ class GenericTest {
 }
 
 /*
- * - Can you give an example when you have to specify a typed parameter in generic method call?
+ * - Can you give an Example when you have to specify a typed parameter in generic method call?
  * - Can type parameter have more than one bounds? Can type parameter bounds to class? Can type parameter bounds to both
  *   class and interface?
  * - What if you have 2 class that one is generic called `KeyValuePair<K, V>` and the second is a non-generic method

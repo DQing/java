@@ -4,6 +4,8 @@ import com.cultivation.javaBasic.showYourIntelligence.NameImpl;
 import com.cultivation.javaBasic.util.*;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.InvocationTargetException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InterfaceTest {
@@ -51,6 +53,27 @@ class InterfaceTest {
         String name = instance.getName();
 
         assertEquals("Person", name);
+    }
+
+    @Test
+    void should_return_12() {
+        A b = new B();
+        String actual = b.tellMeTheTruthOfTheUniverse();
+        String expected = "The truth of the universe is 12";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void should_return_hello() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        System.out.println(Test1.testInvoke() instanceof String);
+        Object obj = Integer.valueOf(1);
+        Number obj1 = (Number) obj;
+
+        Short aShort = 10;
+        Integer integer = Integer.valueOf(aShort);
+//        Integer integer1 = (Integer) aShort;
+
+        assertEquals("hello", Test1.testInvoke());
     }
 }
 
